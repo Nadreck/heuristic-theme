@@ -281,10 +281,13 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Palatino Linotype", Palatino, "FPL Neu", "URW Palladio L", "Book Antiqua", "Zapf Calligraphic", serif;
 	clear: both;
+	margin: 0;
+	padding: 0;
 }
 
 p {
-	margin-bottom: 1.5em;
+	margin-bottom: 1em;
+	margin-top: .25em;
 }
 
 dfn, cite, em, i {
@@ -292,7 +295,9 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	margin: 0 1.5em;
+	margin: 0 1.5em 0 1em;
+	border-left: 4px solid rgba(0,0,0,.05);
+	padding-left: 1.5em;
 }
 
 address {
@@ -358,7 +363,7 @@ hr {
 }
 
 ul, ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 1.5em 1.5em;
 }
 
 ul {
@@ -491,15 +496,17 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: rgba(42,147,191,1);
+	text-decoration: none;
 }
 
 a:visited {
-	color: purple;
+	color: rgba(178,109,0,1);
 }
 
 a:hover, a:focus, a:active {
-	color: midnightblue;
+	color: rgba(46,161,209,1);
+	text-decoration: underline;
 }
 
 a:focus {
@@ -593,16 +600,35 @@ a:hover, a:active {
 .comment-navigation .nav-previous,
 .posts-navigation .nav-previous,
 .post-navigation .nav-previous {
-	float: left;
-	width: 50%;
+	/* float: left;
+	width: 50%; */
 }
 
 .comment-navigation .nav-next,
 .posts-navigation .nav-next,
 .post-navigation .nav-next {
-	float: right;
+	/* float: right;
 	text-align: right;
-	width: 50%;
+	width: 50%; */
+}
+
+.navigation {
+	padding-bottom: 5px;
+}
+
+.nav-links {
+	margin: 0 1em auto 1em;
+	background: rgba(255,255,255,.95);
+	padding: .5em;
+	box-shadow: 3px 3px 3px rgba(0,0,0,.2);
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: baseline;
+	justify-content: space-between;
 }
 
 .main-navigation .nav-menu .menu-item:hover {
@@ -610,7 +636,7 @@ a:hover, a:active {
 }
 
 .main-navigation .nav-menu .current-menu-item {
-	background: #1997FF;
+	background: rgba(255,255,255,.5);
 }
 
 /*--------------------------------------------------------------
@@ -780,6 +806,7 @@ a:hover, a:active {
 ## Site Structure
 --------------------------------------------------------------*/
 .site {
+	position: absolute;
 	display: grid;
 	grid-template-areas: 
 	 "header"
@@ -876,6 +903,7 @@ a:hover, a:active {
 
 @media only screen and (min-width: 37.5em)  {
 	.site-content {
+		position: relative;
 		grid-template-columns: 7fr 3fr;
 		grid-template-areas:
 		"primary secondary"
@@ -919,12 +947,71 @@ a:hover, a:active {
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: .5em 1em .5em 1em;
+}
+
+.entry-content figure {
+	width: inherit !important;
+}
+
+.entry-content img {
+	width: inherit !important;
+	object-fit: contain;
 }
 
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.entry-header {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	grid-column-start: auto;
+	flex-flow: row wrap;
+	align-items: baseline;
+	justify-content: space-between;
+	border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+h1.entry-title {
+}
+
+h2.entry-title a {
+	text-decoration: none;
+	color: rgba(0,0,0,.75);
+}
+
+h2.entry-title a:hover {
+	color: rgba(46,161,209,1);
+	text-decoration: underline;
+}
+
+.entry-meta {
+	font-size: .95rem;
+}
+
+.entry-content {
+	display: block;
+	margin: 1rem 2rem 1rem 1rem;
+}
+
+.entry-footer {
+	background: rgba(0,0,0,.1);
+	padding: .5em;
+	font-size: .95rem;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	grid-column-start: auto;
+	flex-flow: row wrap;
+	align-items: baseline;
+	justify-content: space-between;
 }
 
 /*--------------------------------------------------------------
@@ -936,6 +1023,42 @@ a:hover, a:active {
 
 .bypostauthor {
 	display: block;
+}
+
+.comments-area {
+	margin: 1em;
+	background: rgba(255,255,255,.95);
+	padding: .5em;
+	box-shadow: 3px 3px 3px rgba(0,0,0,.2);
+}
+
+.comments-area .reply {
+	font-size: .90rem;
+}
+
+.comment-metadata {
+	font-size: .95rem;
+}
+
+.comment-content {
+	margin-left: 1rem;
+}
+
+.comment-content p:last-child {
+	margin: 0;
+}
+
+ol.comment-list {
+	padding-left: 1rem;
+}
+
+ol.comment-list li {
+	border-top: 1px solid rgba(0,0,0,.1);
+	margin-bottom: .5em;
+}
+
+ol.comment-list li:first-child {
+	border-top: none;
 }
 
 /*--------------------------------------------------------------
