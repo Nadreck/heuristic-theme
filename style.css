@@ -102,7 +102,8 @@ abbr[title] {
 
 b,
 strong {
-	font-weight: bold;
+	font-weight: 600;
+	font-family: "GillSans-SemiBold", "Gill Sans SemiBold", sans-serif;
 }
 
 dfn {
@@ -707,8 +708,12 @@ a:hover, a:active {
 # Widgets
 --------------------------------------------------------------*/
 .widget {
-	margin: 0 0 1.5em;
+	margin: 1.25em;
 	/* Make sure select elements fit in widgets. */
+	background: rgba(255,255,255,.90);
+	padding: .5em;
+	box-shadow: 3px 3px 3px rgba(0,0,0,.2);
+	font-size: 1rem;
 }
 
 .widget select {
@@ -785,13 +790,46 @@ a:hover, a:active {
 .site-header {
 	grid-area: header;
 	display: grid;
-	background: #000;
+	background: rgba(70, 110, 143, 1);
 	color: #fff;
 }
 
 	.site-branding {
-		
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		flex-flow: row;
+		align-items: center;
+		background: rgba(0,0,0,.25);
 	}
+	
+		h1.site-title, p.site-title {
+			padding: 0;
+			margin: 0;
+			text-indent: .8rem;
+		}
+		
+		.site-title a {
+			text-decoration: none;
+			color: #fff;
+		}
+		
+		.site-description {
+			padding: 0;
+			margin: 0;
+			margin-left: 1rem;
+		}
+		
+		.custom-logo-link {
+			width: 2em;
+			margin-left: .5rem;
+		}
+		.custom-logo {
+			width: 100%;
+			height: auto;
+		}
 	
 	.main-navigation {
 		display: grid;
@@ -804,24 +842,6 @@ a:hover, a:active {
 	}
 	
 	@media only screen and (min-width: 37.5em) {
-		/* .main-navigation .nav-menu {
-			grid-column-start: 1;
-			grid-column-end: 3;
-			display: grid;
-			grid-auto-columns: auto;
-			grid-auto-rows: auto;
-			grid-template-columns: repeat(auto-fill, minmax(min-content,1fr));
-		}
-		
-		.main-navigation .nav-menu .menu-item {
-			padding: .5rem 1rem;
-			grid-column-start: auto;
-			grid-row-start: 1;
-			text-align: center;
-		}
-		#site-navigation .search-form {
-			grid-column-start: 4;
-		} */
 		
 		.main-navigation .nav-menu {
 			display: -webkit-box;
@@ -856,7 +876,7 @@ a:hover, a:active {
 
 @media only screen and (min-width: 37.5em)  {
 	.site-content {
-		grid-template-columns: 3fr 1fr;
+		grid-template-columns: 7fr 3fr;
 		grid-template-areas:
 		"primary secondary"
 	}
@@ -864,12 +884,12 @@ a:hover, a:active {
 
 	#primary {
 		grid-area: primary;
-		
+		background: rgba(70, 110, 143, .5);
 	}
 
 	#secondary {
 		grid-area: secondary;
-		background: rgba(0,0,0,.25);
+		background: rgba(70, 110, 143, .5);
 	}
 
 .site-footer {
@@ -886,7 +906,10 @@ a:hover, a:active {
 }
 
 .hentry {
-	margin: 0 0 1.5em;
+	margin: 1em;
+	background: rgba(255,255,255,.95);
+	padding: .5em;
+	box-shadow: 3px 3px 3px rgba(0,0,0,.2);
 }
 
 .updated:not(.published) {
