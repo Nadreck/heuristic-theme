@@ -15,7 +15,7 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'heuristic' ) ); ?>"><?php
+			<!-- <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'heuristic' ) ); ?>"><?php
 				/* translators: %s: CMS name, i.e. WordPress. */
 				printf( esc_html__( 'Proudly powered by %s', 'heuristic' ), 'WordPress' );
 			?></a>
@@ -23,7 +23,8 @@
 			<?php
 				/* translators: 1: Theme name, 2: Theme author. */
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'heuristic' ), 'heuristic', '<a href="http://nabilmaynard.info">Nabil Maynard</a>' );
-			?>
+			?> -->
+			<span class="copyright">&copy; Nabil Maynard</span>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
