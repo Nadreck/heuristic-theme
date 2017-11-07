@@ -364,6 +364,7 @@ hr {
 
 ul, ol {
 	margin: 0 0 1.5em 1.5em;
+	padding-left: 1em;
 }
 
 ul {
@@ -570,7 +571,7 @@ a:hover, a:active {
 .main-navigation a {
 	display: block;
 	text-decoration: none;
-	color: #000;
+	color: #fff;
 }
 
 /* Small menu. */
@@ -637,6 +638,10 @@ a:hover, a:active {
 
 .main-navigation .nav-menu .current-menu-item {
 	background: rgba(255,255,255,.5);
+}
+
+.current-menu-item a {
+	color: #000;
 }
 
 /*--------------------------------------------------------------
@@ -1034,10 +1039,16 @@ h2.entry-title a:hover {
 
 .comments-area .reply {
 	font-size: .90rem;
+	margin-left: .5rem;
 }
 
 .comment-metadata {
 	font-size: .95rem;
+	margin-left: .5rem;
+}
+
+.comment-author .fn {
+	margin-left: .25rem;
 }
 
 .comment-content {
@@ -1052,13 +1063,17 @@ ol.comment-list {
 	padding-left: 1rem;
 }
 
-ol.comment-list li {
+/* ol.comment-list li {
 	border-top: 1px solid rgba(0,0,0,.1);
 	margin-bottom: .5em;
 }
 
 ol.comment-list li:first-child {
 	border-top: none;
+} */
+
+.comment-list .even {
+	background: rgba(70, 110, 143, .075);
 }
 
 /*--------------------------------------------------------------
