@@ -1,6 +1,6 @@
 /*!
 Theme Name: Heuristic
-Theme URI: http://underscores.me/
+Theme URI: https://github.com/Nadreck/heuristic-theme
 Author: Nabil Maynard
 Author URI: http://nabilmaynard.info
 Description: Learn for yourself.
@@ -103,7 +103,7 @@ abbr[title] {
 b,
 strong {
 	font-weight: 600;
-	font-family: "GillSans-SemiBold", "Gill Sans SemiBold", sans-serif;
+	font-family: "GillSans-SemiBold", "Gill Sans SemiBold", "Segoe UI SemiBold", "Gill Sans MT SemiBold", sans-serif;
 }
 
 dfn {
@@ -271,7 +271,7 @@ select,
 optgroup,
 textarea {
 	color: #404040;
-	font-family: "GillSans-Light", "Gill Sans Light", "GillSans", "Gill Sans", sans-serif;
+	font-family: "GillSans-Light", "Gill Sans Light", "Gill Sans MT Light", "Segoe UI Light", "GillSans", "Gill Sans", "Gill Sans MT", sans-serif;
 	font-size: 18px;
 	font-size: 1.2rem;
 	line-height: 1.5;
