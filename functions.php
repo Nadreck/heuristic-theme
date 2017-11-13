@@ -68,6 +68,21 @@ if ( ! function_exists( 'heuristic_setup' ) ) :
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
+		/*
+		 * Enable support for Post Formats.
+		 * See https://developer.wordpress.org/themes/functionality/post-formats/
+		 */
+		add_theme_support( 'post-formats', array(
+			'aside',
+			'image',
+			'gallery',
+			'video',
+			'audio',
+			'quote',
+			'link',
+		) );
+
+
 		/**
 		 * Add support for core custom logo.
 		 *
@@ -112,6 +127,78 @@ function heuristic_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'heuristic_widgets_init' );
+
+function image_meta() {
+	$imgmeta = wp_get_attachment_metadata($id);
+	if (!empty($imgmeta['image_meta']['shutter_speed']))
+	{
+		if ((1 / $imgmeta['image_meta']['shutter_speed']) > 1)
+		{
+			if ((number_format((1 / $imgmeta['image_meta']['shutter_speed']), 1)) == 1.3
+			or number_format((1 / $imgmeta['image_meta']['shutter_speed']), 1) == 1.5
+			or number_format((1 / $imgmeta['image_meta']['shutter_speed']), 1) == 1.6
+			or number_format((1 / $imgmeta['image_meta']['shutter_speed']), 1) == 2.5)
+			{
+				$shutter =  "1/" . number_format((1 / $imgmeta['image_meta']['shutter_speed']), 1, '.', '') . " second";
+			} else {
+				$shutter = "1/" . number_format((1 / $imgmeta['image_meta']['shutter_speed']), 0, '.', '') . " second";
+			}
+		} else {
+			$shutter = $imgmeta['image_meta']['shutter_speed'] . " seconds";
+		}
+	}
+ 
+	$image = wp_get_attachment_image_src( get_the_ID(), 'full' );
+ 
+	if($imgmeta[image_meta][caption]) {
+		printf('<span class="image-caption">'.$imgmeta[image_meta][caption].'</span>');
+	}	
+ 
+	printf('<table class="image-metadata-table">');
+		if($imgmeta[image_meta][title]) {
+			printf('<tr>');
+				printf('<th>Title:</th>');
+				printf('<td>'.$imgmeta[image_meta][title].'</td>');
+			printf('</tr>');
+		}
+		if($imgmeta[image_meta][credit]) {
+			printf('<tr>');
+				printf('<th>Creator:</th>');
+				printf('<td>'.$imgmeta[image_meta][credit].'</td>');
+			printf('</tr>');
+		}
+		printf('<tr>');
+			printf('<th>Date:</th>');
+			$timestamped = $imgmeta[image_meta][created_timestamp];
+			$created_timestamp = date("F j, Y, g:i a", $timestamped);    
+			printf('<td>'.$created_timestamp.'</td>');
+		printf('</tr>');
+		printf('<tr>');
+			printf('<th>Aperture:</th>');
+			printf('<td>'.$imgmeta[image_meta][aperture].'</td>');
+		printf('</tr>');
+		printf('<tr>');
+			printf('<th>Shutter Speed:</th>');
+			printf('<td>'.$shutter.'</td>');
+		printf('</tr>');
+		printf('<tr>');
+			printf('<th>ISO:</th>');
+			printf('<td>'.$imgmeta[image_meta][iso].'</td>');
+		printf('</tr>');
+		printf('<tr>');
+			printf('<th>Focal Length:</th>');
+			printf('<td>'.$imgmeta[image_meta][focal_length].'</td>');
+		printf('</tr>');
+		printf('<tr>');
+			printf('<th>Camera:</th>');
+			printf('<td>'.$imgmeta[image_meta][camera].'</td>');
+		printf('</tr>');
+		printf('<tr>');
+			printf('<th>Resolution:</th>');
+			printf('<td><a href="'.$image[0].'">'.$imgmeta[width]." x ".$imgmeta[height].'</a></td>');
+		printf('</tr>');		
+	printf('</table>');
+}
 
 /**
  * Enqueue scripts and styles.
