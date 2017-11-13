@@ -14,8 +14,15 @@ get_header(); ?>
 
 		<?php
 		while ( have_posts() ) : the_post();
-
-			get_template_part( 'template-parts/content', get_post_type() );
+			if (get_post_type() == "post") {
+				if (!get_post_format()) {
+					get_template_part( 'template-parts/content', 'single' );
+				} else {
+					get_template_part('template-parts/content', get_post_format());	
+				}
+			} else {
+				get_template_part( 'template-parts/content', get_post_type() );
+			}
 
 			the_post_navigation();
 

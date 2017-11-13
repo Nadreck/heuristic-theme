@@ -49,6 +49,9 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
+		<?php if (get_post_format()) { ?>
+			<span class="entry-type"><a href="<?php echo get_post_format_link(get_post_format()); ?>"><?php echo get_post_format(); ?></a></span>
+		<?php } ?>
 		<?php heuristic_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

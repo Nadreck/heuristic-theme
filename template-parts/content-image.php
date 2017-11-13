@@ -45,6 +45,12 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
+		<?php if (get_post_format()) { ?>
+			<span class="entry-type"><a href="<?php echo get_post_format_link(get_post_format()); ?>"><?php echo get_post_format(); ?></a></span>
+		<?php } ?>
 		<?php heuristic_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
+	<?php if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+		echo do_shortcode( '[jetpack-related-posts]' );
+	} ?>
 </article><!-- #post-<?php the_ID(); ?> -->
