@@ -128,15 +128,6 @@ function heuristic_widgets_init() {
 }
 add_action( 'widgets_init', 'heuristic_widgets_init' );
 
-function jetpackme_remove_rp() {
-    if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
-        $jprp = Jetpack_RelatedPosts::init();
-        $callback = array( $jprp, 'filter_add_target_to_dom' );
-        remove_filter( 'the_content', $callback, 40 );
-    }
-}
-add_filter( 'wp', 'jetpackme_remove_rp', 20 );
-
 function image_meta() {
 	$imgmeta = wp_get_attachment_metadata($id);
 	if (!empty($imgmeta['image_meta']['shutter_speed']))

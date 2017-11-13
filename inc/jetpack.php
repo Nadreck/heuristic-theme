@@ -40,6 +40,20 @@ function heuristic_jetpack_setup() {
 add_action( 'after_setup_theme', 'heuristic_jetpack_setup' );
 
 /**
+ * Remove Related Posts from content.
+ * This theme puts it AFTER the content.
+ */
+
+function jetpackme_remove_rp() {
+    if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+        $jprp = Jetpack_RelatedPosts::init();
+        $callback = array( $jprp, 'filter_add_target_to_dom' );
+        remove_filter( 'the_content', $callback, 40 );
+    }
+}
+add_filter( 'wp', 'jetpackme_remove_rp', 20 );
+
+/**
  * Custom render function for Infinite Scroll.
  */
 function heuristic_infinite_scroll_render() {
