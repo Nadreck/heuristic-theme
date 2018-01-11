@@ -992,7 +992,7 @@ a:hover, a:active {
 	margin: 0 0 1.5em;
 }
 
-.entry-header {
+.entry-header, .page-header {
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
@@ -1003,6 +1003,13 @@ a:hover, a:active {
 	align-items: baseline;
 	justify-content: space-between;
 	border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.page-header {
+	margin: 1em;
+	background: rgba(255,255,255,.95);
+	padding: .5em;
+	box-shadow: 3px 3px 3px rgba(0,0,0,.2);
 }
 
 h1.entry-title {
